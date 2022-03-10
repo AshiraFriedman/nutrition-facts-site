@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import Heading from "./Components/Heading";
+import Input from "./Components/Input";
+import Facts from "./Components/Facts";
 
-function App() {
+export default function App() {
+  const [nutritionFacts, setNutritionFacts] = useState([]);
+
+  function getNutritionFacts(query) {
+    fetch(`https://api.calorieninjas.com/v1/nutrition?query=${query}`, {
+      headers: { "X-Api-Key": "eLRiQvvFz08ov8L7UX9rfg==eeLw8qpuRV08Cvk7" },
+    })
+      .then((response) => response.json())
+      .then((data) => setNutritionFacts(data));
+  }
+
+  useEffect(() => console.log(nutritionFacts), [nutritionFacts]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <Heading />
+      <Input onClick={getNutritionFacts} />
+      <Facts food={nutritionFacts} />
+    </main>
   );
 }
-
-export default App;
