@@ -20,6 +20,7 @@ export default function App() {
     <main>
       <Heading />
       <Input onClick={getNutritionFacts} />
+      <br></br>
       <Facts food={nutritionFacts} />
     </main>
   );

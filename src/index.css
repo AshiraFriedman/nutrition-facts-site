@@ -1,1 +1,16 @@
+main {
+  padding: 3% 10%;
+}
 
+.badge {
+  color: black;
+  font-size: 0.8rem;
+}
+
+.list-group {
+  padding: 5%;
+}
+
+.serving {
+  font-size: 1.2rem;
+}

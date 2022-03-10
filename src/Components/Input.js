@@ -7,6 +7,7 @@ export default function Input(props) {
         placeholder="Type the foods here"
         id="inputLarge"
       ></input>
+      <br></br>
       <button
         className="btn btn-lg btn-primary"
         type="button"
